@@ -58,5 +58,74 @@ class Weekday(ABC):
         """
         return self.__value
 
+class Monday(Weekday):
+    __doc__ = Weekday.__doc__
+
+    def __init__(self, time: dt.time = dt.time()) -> None:
+        super().__init__(time, 0)
+
+
+class Tuesday(Weekday):
+    __doc__ = Weekday.__doc__
+
+    def __init__(self, time: dt.time = dt.time()) -> None:
+        super().__init__(time, 1)
+
+
+class Wednesday(Weekday):
+    __doc__ = Weekday.__doc__
+
+    def __init__(self, time: dt.time = dt.time()) -> None:
+        super().__init__(time, 2)
+
+
+class Thursday(Weekday):
+    __doc__ = Weekday.__doc__
+
+    def __init__(self, time: dt.time = dt.time()) -> None:
+        super().__init__(time, 3)
+
+
+class Friday(Weekday):
+    __doc__ = Weekday.__doc__
+
+    def __init__(self, time: dt.time = dt.time()) -> None:
+        super().__init__(time, 4)
+
+
+class Saturday(Weekday):
+    __doc__ = Weekday.__doc__
+
+    def __init__(self, time: dt.time = dt.time()) -> None:
+        super().__init__(time, 5)
+
+
+class Sunday(Weekday):
+    __doc__ = Weekday.__doc__
+
+    def __init__(self, time: dt.time = dt.time()) -> None:
+        super().__init__(time, 6)
+
+
+_Weekday = Union[Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+
+_weekday_mapping: dict[int, type[_Weekday]] = {
+    0: Monday,
+    1: Tuesday,
+    2: Wednesday,
+    3: Thursday,
+    4: Friday,
+    5: Saturday,
+    6: Sunday,
+}
+
+
+def weekday(value: int, time: dt.time = dt.time()) -> Weekday:
+    """
+    Return |Weekday| from given value with optional time.
+    """
+    weekday_cls: type[_Weekday] = _weekday_mapping[value]
+    weekday_instance = weekday_cls(time)
+    return weekday_instance
 
 
