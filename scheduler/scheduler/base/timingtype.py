@@ -11,3 +11,7 @@ _TimingCyclicList = list[TimingCyclic]
 _TimingDaily = dt.time
 TimingDailyList = list[_TimingDaily]  # Job
 TimingDailyUnion = Union[_TimingDaily, _TimingDailyList]
+
+TimingWeekly = Weekday
+_TimingWeeklyList = list[_TimingWeekly]
+TimingWeeklyUnion = Union[_TimingWeekly, _TimingWeeklyList]
