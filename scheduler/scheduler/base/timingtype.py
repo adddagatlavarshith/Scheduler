@@ -9,3 +9,5 @@ TimingCyclic = dt.timedelta
 _TimingCyclicList = list[TimingCyclic]
 # time on the clock
 _TimingDaily = dt.time
+TimingDailyList = list[_TimingDaily]  # Job
+TimingDailyUnion = Union[_TimingDaily, _TimingDailyList]
